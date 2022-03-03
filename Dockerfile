@@ -4,7 +4,8 @@ WORKDIR /workdir/
 COPY . /workdir/
 RUN CGO_ENABLED=0 go build -o /bin/meetupbot
 
-FROM scratch
-COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+FROM alpine:3.15.0
 COPY --from=build /bin/meetupbot /bin/meetupbot
-CMD ["/bin/meetupbot"]
+COPY cron .
+RUN crontab cron
+CMD [ "crond", "-f" ]
