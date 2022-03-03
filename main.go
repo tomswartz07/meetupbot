@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/jasonodonnell/MeetupBot/calendar"
-	"github.com/jasonodonnell/MeetupBot/slack"
+	"meetupbot/calendar"
+	"meetupbot/slack"
 )
 
 var (
