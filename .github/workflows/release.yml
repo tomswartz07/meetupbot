@@ -3,7 +3,7 @@ on:
   push:
     tags:
       - '*'
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   containers:
     name: Push containers
