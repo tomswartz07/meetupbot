@@ -3,36 +3,9 @@ on:
   push:
     tags:
       - '*'
+    branches: [ main ]
 jobs:
-  release:
-    name: Build and release
-    strategy:
-      fail-fast: false
-      matrix:
-        go-version:
-          - 1.17.x
-          - 1.16.x
-          - 1.15.x
-        os:
-          - ubuntu-latest
-          - macos-latest
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go_version }}
-
-      - name: Build
-        run: go build -v ./...
-
   containers:
-    needs: release
     name: Push containers
     runs-on: ubuntu-latest
     steps:
@@ -60,7 +33,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           platforms: |
-            linux/386
             linux/amd64
             linux/arm/v6
             linux/arm/v7
