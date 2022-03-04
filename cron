@@ -1,2 +1,2 @@
-# Run every 15 minutes
+# Run every Monday at 10 am
 0 10 * * 1 /bin/meetupbot
