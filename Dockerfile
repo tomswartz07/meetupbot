@@ -2,7 +2,7 @@ FROM golang:1.18.0-alpine AS build
 
 WORKDIR /workdir/
 COPY . /workdir/
-RUN CGO_ENABLED=0 go build -o /bin/meetupbot
+RUN CGO_ENABLED=0 go build -buildvcs=false -o /bin/meetupbot
 
 FROM alpine:3.15.0
 LABEL org.opencontainers.image.source https://github.com/tomswartz07/meetupbot
