@@ -5,7 +5,7 @@ COPY . /workdir/
 RUN apk add --update tzdata
 RUN CGO_ENABLED=0 go build -buildvcs=false -o /bin/meetupbot
 
-FROM alpine:3.16.0
+FROM alpine:3.16.1
 LABEL org.opencontainers.image.source https://github.com/tomswartz07/meetupbot
 LABEL org.opencontainers.image.authors="tom+docker@tswartz.net"
 LABEL description="Docker container to run a Slack bot which posts weekly \
