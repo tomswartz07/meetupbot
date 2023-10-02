@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - '*'
+  workflow_run:
+    workflows: [Bump version]
 jobs:
   build:
     name: Build
