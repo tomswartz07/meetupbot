@@ -18,3 +18,4 @@ ENV TZ=America/New_York
 COPY cron .
 RUN crontab cron
 CMD [ "crond", "-f" ]
+HEALTHCHECK CMD ps aux | grep '[c]ron' || exit 1
