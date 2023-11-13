@@ -1,2 +1,2 @@
 # Run every Monday at 10 am
-0 10 * * 1 /bin/meetupbot
+0 7 * * 1 /bin/meetupbot
