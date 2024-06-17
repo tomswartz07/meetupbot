@@ -15,7 +15,6 @@ jobs:
           - 1.21.x
         os:
           - ubuntu-latest
-          - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
